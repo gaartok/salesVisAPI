@@ -6,7 +6,7 @@ const { PurchasedItems } = require('../models/sales-vis');
 //DESCRIPTION,        EXTERNAL ID,VENUE ,SIZE,CHECK #,TIME               ,ITEM COST,QUANTITY,ITEM COMPS,TAB COMPS,ITEM AMOUNT,AMOUNT LESS TAB COMPS,INCLUDED TAX,ADD ON TAX,DEPOSIT/+TAX,TAB TAG,ITEM TAGS,APPLIED COMPS,EMPLOYEE      ,NOTE,COGS
 //Cliffside Stonewall,           ,"Bar ",PINT,068502 ,2022-01-01 14:02:16,$6.00    ,1.0     ,$0.00     ,$0.00    ,$6.00      ,$6.00                ,$0.36       ,$0.00     ,            ,       ,         ,             ,"Smith, Kathy",    ,
 
-const processData = async (req, res, next) => {
+const importData = async (req, res, next) => {
     if (!req.body.fileName || !req.body.fileData) {
         console.log('Error: no file found');
         return res.json({message: 'Error: no file found'});
@@ -42,11 +42,10 @@ const processData = async (req, res, next) => {
     }
 
     console.log('Done importing data');
+    return res.json({message: 'Imported data'});
 };
 
 
-module.exports = {
-    processData
-};
+module.exports = importData;
 
 
