@@ -3,10 +3,12 @@ import express from "express";
 const fileUpload = require('express-fileupload');
 import mongoose from 'mongoose';
 const routes = require('./routes/sales-vis');
+const cors = require('cors');
 
 const app = express();
 const port = process.env.PORT || 8080;
 
+app.use(cors());
 app.use(fileUpload({ createParentPath: true }));
 app.use('/', routes);
 
