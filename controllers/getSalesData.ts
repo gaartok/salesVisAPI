@@ -6,7 +6,9 @@ const { PurchasedItems } = require('../models/sales-vis');
 
 const getSalesData = async (req, res, next) => {
     console.log(`getSalesData params = ${JSON.stringify(req.params)}`);
-    res.send(JSON.stringify({ testData: 'Hello from getSalesData!' }));
+    setTimeout(() => {
+        res.send(JSON.stringify({ testData: 'Hello from getSalesData!' }));
+    }, 300);
 };
 
 
